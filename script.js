@@ -1,6 +1,6 @@
 // console.log("Rock, Paper, Scissors, Shoot!");
 
-let choices = ["Rock", "Paper", "Scissors"];
+const choices = ["Rock", "Paper", "Scissors"];
 let humanChoice;
 let computerChoice;
 let humanScore = 0;
@@ -70,6 +70,8 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function startGame() {
+
+    
     for (let i = 0; i <= 5; i++) {
         playRound(getHumanChoice(), getComputerChoice());
     }
@@ -78,4 +80,15 @@ function startGame() {
     alert(`${result}\n ${finalScore}`);
 }
 
-startGame();
+function playAgain() {
+    let userPrompt = confirm("Do you want to play Rock, Paper, Scissors?");
+
+    while(userPrompt) {
+        startGame();
+        userPrompt = confirm("Do you want to play again?");
+    }
+    alert("Thanks for playing!");
+}     
+
+playAgain();
+
