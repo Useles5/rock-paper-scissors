@@ -1,9 +1,16 @@
 // console.log("Rock, Paper, Scissors, Shoot!");
 
 let choices = ["Rock", "Paper", "Scissors"];
+let humanChoice;
+let computerChoice;
+let humanScore = 0;
+let computerScore = 0;
+let finalScore = humanScore + " - " + computerScore;
+let result = humanScore > computerScore ? "You win!" : "You lose!";
 
 function getComputerChoice(){
-    return choices[randomChoice()];
+    computerChoice = choices[randomChoice()];
+    return computerChoice;
 }
 
 function randomChoice() {
@@ -12,8 +19,6 @@ function randomChoice() {
 }
 
 function getHumanChoice() {
-    let humanChoice;
-
     do {
         humanChoice = prompt(
             "Enter your Choice: Rock, Paper, or Scissors?\n" + 
@@ -31,7 +36,38 @@ function getHumanChoice() {
         humanChoice > 2
     );
 
-    return alert(`Your Choice: ${choices[humanChoice]} | Computer Choice: ${getComputerChoice()}`); 
+    humanChoice = choices[humanChoice];
+    return humanChoice;
 }
 
-getHumanChoice();
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        return alert("Tie");   
+    } 
+    else if ( humanChoice === "Rock" && computerChoice === "Scissors") {
+        humanScore++;
+        return alert("You win! " + humanChoice + " beats " + computerChoice);
+    } 
+    else if ( humanChoice === "Rock" && computerChoice === "Paper") {
+        computerScore++;
+        return alert("You lose! " + computerChoice + " beats " + humanChoice);
+    }
+    else if ( humanChoice === "Paper" && computerChoice === "Scissors") {
+        computerScore++;
+        return alert("You lose! " + computerChoice + " beats " + humanChoice);
+    } 
+    else if ( humanChoice === "Paper" && computerChoice === "Rock") {
+        humanScore++;
+        return alert("You win! " + humanChoice + " beats " + computerChoice);
+    }
+    else if ( humanChoice === "Scissors" && computerChoice === "Rock") {
+        computerScore++;
+        return alert("You lose! " + computerChoice + " beats " + humanChoice);
+    }
+    else if ( humanChoice === "Scissors" && computerChoice === "Paper") {
+        humanScore++;
+        return alert("You win! " + humanChoice + " beats " + computerChoice);
+    }
+    
+}
+
