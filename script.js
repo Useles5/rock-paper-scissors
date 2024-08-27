@@ -1,5 +1,3 @@
-// console.log("Rock, Paper, Scissors, Shoot!");
-
 const choices = ["Rock", "Paper", "Scissors"];
 let humanChoice;
 let computerChoice;
