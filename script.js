@@ -5,8 +5,6 @@ let humanChoice;
 let computerChoice;
 let humanScore = 0;
 let computerScore = 0;
-let finalScore = humanScore + " - " + computerScore;
-let result = humanScore > computerScore ? "You win!" : "You lose!";
 
 function getComputerChoice(){
     computerChoice = choices[randomChoice()];
@@ -71,3 +69,13 @@ function playRound(humanChoice, computerChoice) {
     
 }
 
+function startGame() {
+    for (let i = 0; i <= 5; i++) {
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+    let finalScore = humanScore + " - " + computerScore;
+    let result = humanScore > computerScore ? "You win!" : "You lose!";
+    alert(`${result}\n ${finalScore}`);
+}
+
+startGame();
