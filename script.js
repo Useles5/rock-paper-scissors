@@ -68,13 +68,13 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function startGame() {
-
-    
     for (let i = 0; i <= 5; i++) {
         playRound(getHumanChoice(), getComputerChoice());
     }
+
     let finalScore = humanScore + " - " + computerScore;
     let result = humanScore > computerScore ? "You win!" : "You lose!";
+    
     alert(`${result}\n ${finalScore}`);
 }
 
